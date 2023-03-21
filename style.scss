@@ -1,0 +1,210 @@
+// Переменные
+$contentWidth: 1240px;
+
+// Общие стили
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.central {
+    padding-left: calc(50% - $contentWidth / 2);
+    padding-right: calc(50% - $contentWidth / 2);
+}
+
+// Шапка
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+    height: 80px;
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &-profile {
+            display: none;
+        }
+    }
+
+    &__search {
+        width: 100%;
+
+        &-input {
+            height: 40px;
+            width: 100%;
+            box-sizing: border-box;
+            background-image: url(https://svgshare.com/i/rLT.svg);
+            background-repeat: no-repeat;
+            background-position-x: 8px;
+            background-position-y: 50%;
+            padding-left: 39px;
+            padding-right: 10px;
+            border: 1px solid #EBEBF1;
+            border-radius: 5px;
+        }
+
+        &-input::placeholder {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            color: #BBC4D6;
+        }
+    }
+
+    &__account {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-left: 1px solid #EBEBF1;
+        padding-left: 19px;
+        box-sizing: border-box;
+
+        &-name {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 17px;
+            color: #768298;
+        }
+    }
+
+}
+
+// Основной контент
+
+.content {
+
+    &__title {
+        padding-top: 70px;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 58px;
+        text-transform: uppercase;
+        color: #121920;
+        padding-bottom: 30px;
+    }
+
+    &__box {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+
+        &-item {
+            width: 287.5px;
+            height: 120px;
+            box-sizing: border-box;
+            border: 1px solid #EBEBF1;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s;
+        }
+
+        &-item:hover {
+            box-shadow: -3px 0px 40px rgba(0, 0, 0, 0.1), 0px 0px 10px rgba(164, 164, 164, 0.03);
+        }
+    }
+}
+
+// Адаптив планшет
+
+@media (min-width: 768px) and (max-width: 1240px) {
+
+    .header {
+        padding-left: 20px;
+        padding-right: 20px;
+
+    }
+
+    .content {
+        padding-left: 20px;
+        padding-right: 20px;
+
+        &__title {
+            font-size: 28px;
+            line-height: 45px;
+        }
+
+        &__box {
+            gap: 20px;
+
+            &-item {
+                width: 229px;
+
+                &-img {
+                    max-width: 85%;
+                }
+            }
+        }
+    }
+}
+
+// Адаптив мобилка
+
+@media (min-width: 375px) and (max-width: 767px) {
+    .header {
+        flex-direction: column;
+        gap: 0;
+        height: 100%;
+
+        &__logo {
+            width: 100%;
+            padding: 16px 20px;
+            box-sizing: border-box;
+
+            &-profile {
+                display: block;
+            }
+        }
+
+        &__search {
+            width: 100%;
+
+            &-input {
+                width: 100%;
+                border: none;
+                border-top: 1px solid #EBEBF1;
+                padding-left: 49px;
+                background-position-x: 20px;
+            }
+        }
+
+        &__account {
+            display: none;
+        }
+    }
+
+    .content {
+        padding-left: 20px;
+        padding-right: 20px;
+
+        &__title {
+            font-size: 28px;
+            line-height: 45px;
+        }
+
+        &__box {
+            gap: 20px;
+            justify-content: center;
+
+            &-item {
+                width: 335px;
+                height: 140px;
+
+            }
+        }
+    }
+}
